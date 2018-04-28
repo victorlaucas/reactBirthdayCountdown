@@ -16,6 +16,7 @@ class Clock extends Component {
 
     }
 
+
     getTimeRemaining(birthday) {
         var bday = new Date(birthday);
         var today = new Date();
@@ -75,6 +76,10 @@ class Clock extends Component {
             const timeRemaining = this.getTimeRemaining(this.birthday)
             this.setState({ timeRemaining: timeRemaining })
         }, 1000);
+    }
+
+    componentWillUnmount() {
+      clearInterval(this.timer);
     }
 
     render() {  
